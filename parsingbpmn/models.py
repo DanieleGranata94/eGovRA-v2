@@ -49,8 +49,10 @@ class Asset_type(models.Model):
 
 class Asset(models.Model):
     name = models.CharField(max_length=100)
+    bpmn_id= models.CharField(max_length=100,null=True)
     process = models.ForeignKey(Process, on_delete=models.CASCADE)
     asset_type = models.ForeignKey(Asset_type,on_delete=models.CASCADE,null=True)
+    position=models.CharField(max_length=100,null=True)
 
     class Meta:
         verbose_name="Asset"
